@@ -1,43 +1,14 @@
-class Term
-  @@terms = []
-
-  define_method(:initialize) do |word, definition|
-    @word = word
-    @definition = definition
-    @id = @@terms.length().+(1)
+class Dictionary
+  define_method(:initialize) do
+    @words = []
   end
 
-  define_method(:word) do
-    @word
+  define_method(:words) do
+    @words
   end
 
-  define_method(:definition) do
-    @definition
+  define_method(:add_word) do |word|
+    @words.push(word)
   end
 
-  define_method(:id) do
-    @id
-  end
-
-  define_singleton_method(:all) do
-    @@terms
-  end
-
-  define_method(:add) do
-    @@terms.push(self)
-  end
-
-  define_singleton_method(:clear) do
-    @@terms = []
-  end
-
-  define_singleton_method(:find) do |identification|
-    found_word = nil
-    @@terms.each() do |word|
-      if word.id().eql?(identification.to_i())
-        found_word = word
-      end
-    end
-    found_word
-  end
 end

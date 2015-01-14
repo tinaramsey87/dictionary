@@ -1,0 +1,21 @@
+<h1>Dictionary</h1>
+
+<h3>Add a word and its definition to dictionary here:</h3>
+
+<form action="/term" method="post">
+  <label for="word">Word:</label>
+  <input id="word" name="word" type="text">
+
+  <label for="definition">Definition:</label>
+  <input id="definition" name="definition" type="text">
+
+  <button type="submit">Add to Dictionary</button>
+</form>
+
+
+<h3>Here are the words in the dictionary: </h3>
+  <ul>
+    <% @terms.each() do |word| %>
+      <li><a href="/term/<%= word.id() %>"><%= word.word() %></a><a href="/delete/<%= word.id() %>">Delete</a></li>
+    <% end %>
+  </ul>
