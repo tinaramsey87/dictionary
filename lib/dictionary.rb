@@ -4,6 +4,7 @@ class Term
   define_method(:initialize) do |word, definition|
     @word = word
     @definition = definition
+    @id = @@terms.length().+(1)
   end
 
   define_method(:word) do
@@ -12,6 +13,10 @@ class Term
 
   define_method(:definition) do
     @definition
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_singleton_method(:all) do
@@ -26,4 +31,13 @@ class Term
     @@terms = []
   end
 
+  define_singleton_method(:find) do |identification|
+    found_word = nil
+    @@terms.each() do |word|
+      if word.id().eql?(identification.to_i())
+        found_word = word
+      end
+    end
+    found_word
+  end
 end

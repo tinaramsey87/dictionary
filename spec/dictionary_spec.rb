@@ -23,6 +23,14 @@ describe(Term) do
     end
   end
 
+  describe('#id') do
+    it('assigns an id to each word') do
+      test_word = Term.new("carrot", "A delicious vegetable")
+      test_word.add()
+      expect(test_word.id()).to(eq(1))
+    end
+  end
+
   describe('#add') do
     it('adds a word and definition to the dictionary') do
       test_word = Term.new("carrot", "A delicious vegetable")
@@ -44,4 +52,14 @@ describe(Term) do
       expect(Term.all()).to(eq([]))
     end
   end
+
+  describe(".find") do
+  it("returns a word by its id number") do
+    test_word = Term.new("carrot", "A delicious vegetable")
+    test_word.add()
+    test_word2 = Term.new("celery", "A not so delicious vegetable")
+    test_word2.add()
+    expect(Term.find(test_word.id())).to(eq(test_word))
+  end
+end
 end
