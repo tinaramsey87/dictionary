@@ -2,6 +2,13 @@
 
 <h3>Add a word and its definition to dictionary here:</h3>
 
+<form action="/search">
+  <label for="search_word">Enter a word:</label>
+  <input id="search_word" name="search_word" type="text">
+
+  <button type="submit">Search</button>
+</form>
+
 <form action="/term" method="post">
   <label for="word">Word:</label>
   <input id="word" name="word" type="text">
@@ -11,7 +18,6 @@
 
   <button type="submit">Add to Dictionary</button>
 </form>
-
 
 <h3>Here are the words in the dictionary: </h3>
   <ul>

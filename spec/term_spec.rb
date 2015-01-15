@@ -64,12 +64,22 @@ describe(Term) do
   end
 
   describe(".find") do
-  it("returns a word by its id number") do
-    test_word = Term.new("carrot", "A delicious vegetable")
-    test_word.add()
-    test_word2 = Term.new("celery", "A not so delicious vegetable")
-    test_word2.add()
-    expect(Term.find(test_word.id())).to(eq(test_word))
+    it("returns a word by its id number") do
+      test_word = Term.new("carrot", "A delicious vegetable")
+      test_word.add()
+      test_word2 = Term.new("celery", "A not so delicious vegetable")
+      test_word2.add()
+      expect(Term.find(test_word.id())).to(eq(test_word))
+    end
   end
-end
+
+  describe(".search") do
+    it("searches for a word by it's id number and returns the word and definition") do
+      test_word = Term.new("carrot", "A delicious vegetable")
+      test_word.add()
+      test_word2 = Term.new("celery", "A not so delicious vegetable")
+      test_word2.add()
+      expect(Term.search(test_word)).to(eq(test_word))
+    end
+  end
 end

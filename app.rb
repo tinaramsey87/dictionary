@@ -22,6 +22,14 @@ get('/term/:id') do
   erb(:definition)
 end
 
+get('/search') do
+  @word = params.fetch('search_word')
+  # @search_word = Term.new(@word, @definition)
+  @terms = Term.all()
+  Term.search(@search_word)
+  erb(:word)
+end
+
 get('/delete/:id') do
   Term.delete(params.fetch("id"))
   @terms = Term.all()

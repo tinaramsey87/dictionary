@@ -49,4 +49,13 @@ class Term
     end
     found_word
   end
+
+  define_singleton_method(:search) do |search_word|
+
+    if @@terms.include?(search_word)
+      search_word
+    else
+      "That word is not in the dictionary!"
+    end
+  end
 end
